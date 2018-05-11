@@ -1,12 +1,15 @@
 var die = {
-    size: 4,
-    count: 1,
-    roll: function(dieSize) {
-        var result = Math.ceil(dieSize * Math.random());
+    size: 6,
+    totalRolls: 0,
+    roll: function() {
+        var result = Math.ceil(this.size * Math.random());
+        this.totalRolls++
+        console.log(this);
         return result;
-    }
+        
+    }};
 
-};
-
-console.log(die);
-console.log(die.roll(6));
+console.log(die.roll());
+console.log(die.roll());
+console.log(die.roll());
+console.log("Total rolls:" + die.totalRolls);
