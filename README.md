@@ -1,2 +1,2 @@
 # fantastic-spork
-This stuff is kind of like a spork; it's not really sure what it is.  
+This stuff is kind of like a spork; it's not really sure what it is, but it tries anyway! 
