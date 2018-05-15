@@ -1,6 +1,3 @@
-// ES6 ??? 
-// import book from "../lib/grades";
-
 var book = require("../lib/grades").book;
 
 exports["setUp"] = function(callback){
@@ -23,5 +20,4 @@ exports["Can averages grades"] = function(test){
     test.equal(average, 75);
     test.done();
 };
-
 

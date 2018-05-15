@@ -1,5 +1,3 @@
-var programData = require("../program");
-
 var gradeBook = {
 
     _grades: [],
