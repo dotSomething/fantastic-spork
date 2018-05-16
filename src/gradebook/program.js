@@ -5,6 +5,7 @@ function printAverage(){
         printer.book.addGrade(parseInt(process.argv[i]));
     };
     console.log('Average: ' + printer.book.getAverage());
+    console.log("Letter Grade: " + printer.book.getLetterGrade());
 };
 
 printAverage();
