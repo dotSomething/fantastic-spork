@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Charm|Cookie|Dancing+Script|Kaushan+Script|ZCOOL+XiaoWei" rel="stylesheet">
+<style type="text/css">
+	textarea {
+		width: 300px;
+		height: 50px;
+		display: block;
+		margin:20px;
+		font-family: 'ZCOOL XiaoWei', serif;
+		color: #68B298;
+		font-weight: 300;
+	}
+	button {
+		font-family: 'ZCOOL XiaoWei', serif;
+		color: #68B298;
+		font-size: 20px;
+		display: block;
+		width: 155px;
+		margin:20px;
+		padding: 10px;
+		background-color: #FFFEFE;
+	}
+	#thankYou {
+		display: block;
+		width: 155px;
+		margin:20px;
+		background-color: #FFFEFE;
+		color: #68B298;
+		padding: 10px;
+	}
+	#myReload {
+		display: block;
+		width: 155px;
+		margin:20px;
+		background-color: #FFFEFE;
+		color: #68B298;
+		padding: 10px;
+	}
+	#myReceiver {
+		font-size: 24px;
+		margin: 20px;
+	}
+	.hidden {
+	display: none !important;
+	}
+	.hover {
+		background-color: red;
+	}
+	.header {
+		font-family: 'Kaushan Script', cursive;
+		font-size: 20px;
+		font-weight: 500;
+		text-transform: initial;
+		background-color: #FFD2C8;
+		padding: 0px 10px 0px 10px;
+	}
+	.oops {
+		font-family: 'ZCOOL XiaoWei', serif;
+		color: #B2513F;
+		font-size: 15px !important;
+		font-weight: 600;
+	}
+	.presentation {
+		font-family: 'ZCOOL XiaoWei', serif;
+		font-size: 12pt !important;
+		background-color: #FFF3F0;
+		line-height: 20pt;
+		width: 50%;
+		text-align: justify;
+		padding: 10px 10px 10px 10px;
+	}
+</style>
+<!-- this is calling a Jquery library off the web, so it's already included for you to use. -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<script type="text/javascript">
+	//write your code inside this jquery area:
+	$(document).ready(function(){
+
+		$(document).on('focus', '#myTextArea', function() {
+			$('#myTextArea').val('');
+		});
+		$().on('mouseenter', '#myTrigger', () => {
+			$('#myTrigger').hide('.content');
+		});
+		$(document).on('click', '#myTrigger', function() {
+
+			var textAreaString = $('#myTextArea').val();
+			//textAreaString = "this is my string: " + textAreaString;
+			if (textAreaString != '') {
+				$('#myTrigger, #myTextArea, .content').hide();
+				$('#thankYou').removeClass('hidden');
+				// $('#myReload').removeClass('hidden');
+				$('#myReceiver').html(textAreaString).addClass('presentation');
+			} else {
+
+				$('#myReceiver').html('Type something in the text box first!').addClass('oops');
+			}
+		$(document).on('click', '#myReload', function () {
+			location.reload();
+		})
+	});
+
+	});
+</script>
+</head>
+<body>
+<!-- the body is where the page elements go -->
+<div class='content, hidden'>
+	Lessons:
+	<ul>
+		<li>use the Jquery documentation: <a target="new" href="https://api.jquery.com/">api.jquery.com/</a> and <a target="new" href="https://stackoverflow.com">stackoverflow.com</a> to get help<br></li>
+		<li>var declares a variable only declare it once then reuse it.</li>
+		<li>Strings = 'strings are in quotes'</li>
+		<li>Conditionals: the 'if'  block says if this then that or do something else.</li>
+		<li>Events: the on 'click' could be 'mouseover' or 'change' </li>
+		<li>comments = //, this makes the line non functional remove the // to add some verbiage to the textAreaString</li>
+	</ul>
+	Play around changing the components and behaviors, try a string manipulation before output.
+	try to change the background color of an object when you click the button.
+	there are two events being triggered.
+	This is both very simple and a lot to digest.
+	Open this page in Chrome browser than right click and 'inspect'. Use the console to get clues about errors.
+</div>
+
+  <div class='header'>Send Something</div>
+<textarea id="myTextArea">Type Here</textarea>
+
+<button id="myTrigger">Ink It!</button>
+<div id="myReceiver"></div>
+<div id="thankYou" class="hidden">Thank you!</div>
+ <button id="myReload" class="hidden">Reload</button>
+
+</body>
