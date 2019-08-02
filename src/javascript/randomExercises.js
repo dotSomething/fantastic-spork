@@ -9,7 +9,7 @@ const arrays = require('./arrayList.js');
 const strings = require('./strings.js');
 
 console.log(x7.frankenSpliceNew(arrays.frankenSpliceArrays[0], arrays.frankenSpliceArrays[1], 1));
-console.log(x7.frankenSpliceNew([1,2,3], [4, 5], 1));
+// console.log(x7.frankenSpliceNew([1,2,3], [4, 5], 1));
 // console.log("    ", x7.decodeMessage(strings.decodeMessageString));
 // console.log(`"${strings.decodeMessageString}" means: `);
 // console.log(x7.decodeMessage(strings.decodeMessageString))
