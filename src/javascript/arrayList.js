@@ -46,16 +46,21 @@ const frankenSpliceArrays = [
 
 const carData = [
 	{
-		make: "Scion", 
-		model: "tC", 
+		make: "Scion",
+		model: "tC",
 		weight: 3000
-	}, 
+	},
 	{
-		make: "Nissan", 
-		model: "Sentra", 
+		make: "Nissan",
+		model: "Sentra",
 		weight: 2500
 	}
 ]
+
+const movieArrays = {
+	reference: ['Aliens', 'Predator', 'Infinity War', 'District 9'],
+	copy: ['Black Panther', 'Heat', 'Interstellar', 'The Dark Knight']
+}
 
 module.exports = {
 	array1,
@@ -64,5 +69,6 @@ module.exports = {
 	wishlist,
 	voters,
 	comments,
-	frankenSpliceArrays
+	frankenSpliceArrays,
+	movieArrays
 }

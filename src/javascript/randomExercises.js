@@ -5,10 +5,13 @@ const x4 = require('./coursework.vschool_x4.js');
 const x5 = require('./coursework.vschool_x5_02.js');
 const x6 = require('./coursework.vschool_x6.js');
 const x7 = require('./coursework.random.js');
+const x8 = require('./js30.js');
 const arrays = require('./arrayList.js');
 const strings = require('./strings.js');
 
-console.log(x7.frankenSpliceNew(arrays.frankenSpliceArrays[0], arrays.frankenSpliceArrays[1], 1));
+console.log(x8.makeGoodWithReference(arrays.movieArrays.reference));
+console.log(x8.makeGoodWithCopy(arrays.movieArrays.copy));
+// console.log(x7.frankenSpliceNew(arrays.frankenSpliceArrays[0], arrays.frankenSpliceArrays[1], 1));
 // console.log(x7.frankenSpliceNew([1,2,3], [4, 5], 1));
 // console.log("    ", x7.decodeMessage(strings.decodeMessageString));
 // console.log(`"${strings.decodeMessageString}" means: `);
