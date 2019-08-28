@@ -17,7 +17,51 @@ function makeGoodWithCopy(goodMovies) {
 	return movieCopy;
 }
 
+function copyArray(incomingArray) {
+	const copyBySplice = incomingArray.slice();
+	const copyByConcat = [].concat(incomingArray);
+	const copyBySpread = [...incomingArray];
+	const copyByArrayFrom = Array.from(incomingArray);
+
+	copyByArrayFrom[3] = 'Batman';
+	console.log('Original Array: ', incomingArray)
+
+	return copiedArrays = {
+		splice: copyBySplice,
+		concat: copyByConcat,
+		spread: copyBySpread,
+		copyByArrayFrom
+	}
+}
+function newObjectWithObjectSpread(incomingObject, newElement, value) {
+	const newObj = { ...incomingObject, [newElement]: value }
+	console.log(incomingObject);
+	return newObj
+}
+
+function makeNewObjectH(incomingObject) {
+	const newObject = Object.assign({}, incomingObject, { update: 'Bad Robot' })
+	return newObject;
+}
+
+function makeNewObjectD(incomingObject, updateExisting, x, value) {
+	if (updateExisting) {
+		const newObject = Object.assign({}, incomingObject, { [x]: value });
+		return newObject;
+	}
+	if (!updateExisting) {
+		const msg = '\nNothing updated.\n'
+		console.log(incomingObject)
+		return msg
+	}
+}
+
+
 module.exports = {
 	makeGoodWithReference,
-	makeGoodWithCopy
+	makeGoodWithCopy,
+	copyArray,
+	makeNewObjectH,
+	makeNewObjectD,
+	newObjectWithObjectSpread
 }
