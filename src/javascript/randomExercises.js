@@ -9,8 +9,12 @@ const x8 = require('./js30.js');
 const arrays = require('./arrayList.js');
 const strings = require('./strings.js');
 
-console.log(x8.makeGoodWithReference(arrays.movieArrays.reference));
-console.log(x8.makeGoodWithCopy(arrays.movieArrays.copy));
+
+console.log(x8.newObjectWithObjectSpread(arrays.movieArrays, 'newStuff', 'Darc'));
+// console.log(x8.makeNewObjectD(arrays.movieArrays, true, 'update', 'Bad Robot'));
+// console.log(x8.makeNewObjectH(arrays.movieArrays));
+// console.log(x8.makeGoodWithReference(arrays.movieArrays.reference));
+// console.log(x8.makeGoodWithCopy(arrays.movieArrays.copy));
 // console.log(x7.frankenSpliceNew(arrays.frankenSpliceArrays[0], arrays.frankenSpliceArrays[1], 1));
 // console.log(x7.frankenSpliceNew([1,2,3], [4, 5], 1));
 // console.log("    ", x7.decodeMessage(strings.decodeMessageString));
