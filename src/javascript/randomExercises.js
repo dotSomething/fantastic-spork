@@ -6,11 +6,12 @@ const x5 = require('./coursework.vschool_x5_02.js');
 const x6 = require('./coursework.vschool_x6.js');
 const x7 = require('./coursework.random.js');
 const x8 = require('./js30.js');
+const inLearningChallenge01 = require('./favorite_city.js');
 const arrays = require('./arrayList.js');
 const strings = require('./strings.js');
 
-
-console.log(x8.newObjectWithObjectSpread(arrays.movieArrays, 'newStuff', 'Darc'));
+console.log('One of my favorite cities is', inLearningChallenge01.randomCity());
+// console.log(x8.newObjectWithObjectSpread(arrays.movieArrays, 'newStuff', 'Darc'));
 // console.log(x8.makeNewObjectD(arrays.movieArrays, true, 'update', 'Bad Robot'));
 // console.log(x8.makeNewObjectH(arrays.movieArrays));
 // console.log(x8.makeGoodWithReference(arrays.movieArrays.reference));

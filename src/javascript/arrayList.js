@@ -62,6 +62,8 @@ const movieArrays = {
 	copy: ['Black Panther', 'Heat', 'Interstellar', 'The Dark Knight']
 }
 
+const favorite_cities = ['Pandora', 'Westeros', 'The Shire', 'Gotham City', 'Metropolis', 'Hell\'s Kitchen'];
+
 module.exports = {
 	array1,
 	array2,
@@ -70,5 +72,6 @@ module.exports = {
 	voters,
 	comments,
 	frankenSpliceArrays,
-	movieArrays
+	movieArrays,
+	favorite_cities
 }
