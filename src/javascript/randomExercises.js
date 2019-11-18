@@ -1,35 +1,26 @@
-const x1 = require('./coursework.vschool_x1.js');
-const x2 = require('./coursework.vschool_x2.js');
-const x3 = require('./coursework.vschool_x3.js');
-const x4 = require('./coursework.vschool_x4.js');
-const x5 = require('./coursework.vschool_x5_02.js');
-const x6 = require('./coursework.vschool_x6.js');
-const x7 = require('./coursework.random.js');
-const x8 = require('./js30.js');
-const inLearningChallenge01 = require('./favorite_city.js');
-const arrays = require('./arrayList.js');
-const strings = require('./strings.js');
+const SCRIPTS = require('./scripts.js');
+const DATA = require('./data.js');
 
-console.log('One of my favorite cities is', inLearningChallenge01.randomCity());
-// console.log(x8.newObjectWithObjectSpread(arrays.movieArrays, 'newStuff', 'Darc'));
-// console.log(x8.makeNewObjectD(arrays.movieArrays, true, 'update', 'Bad Robot'));
-// console.log(x8.makeNewObjectH(arrays.movieArrays));
-// console.log(x8.makeGoodWithReference(arrays.movieArrays.reference));
-// console.log(x8.makeGoodWithCopy(arrays.movieArrays.copy));
-// console.log(x7.frankenSpliceNew(arrays.frankenSpliceArrays[0], arrays.frankenSpliceArrays[1], 1));
-// console.log(x7.frankenSpliceNew([1,2,3], [4, 5], 1));
-// console.log("    ", x7.decodeMessage(strings.decodeMessageString));
-// console.log(`"${strings.decodeMessageString}" means: `);
-// console.log(x7.decodeMessage(strings.decodeMessageString))
-// console.log(x7.encode(strings.encodeString));
-// console.log(x7.isPresent(strings.isPresentString, strings.isPresentTarget))
-// console.log(x7.countLetters(strings.countLettersString));
-// console.log(x7.swapCase(strings.swapCaseString));
-// console.log(x6.votingReport(arrays.voters, 18, 25, false));
-// console.log(x5.flattenWithReduce(arrays.array5));
-// console.log(x5.flattenWithConcat(arrays.array5));
-// console.log(x4.totalCostWithReduce(arrays.wishlist));
-// x3.countPeopleWhoVotedWithMap(arrays.voters);
-// console.log(x3.countPeopleWhoVotedWithForEach(arrays.voters));
-// console.log(x2.turnArrayIntoStringWithReduce(arrays.array2), '(',typeof(x2.turnArrayIntoStringWithReduce(arrays.array2)),')');
-// console.log(x1.arraySumWithForEach(arrays.array1));
+console.log('One of my favorite cities is', SCRIPTS.randomCity(0, DATA.FAVORITE_CITIES));
+// console.log(SCRIPTS.newObjectWithObjectSpread(DATA.MOVIEARRAYS, 'newStuff', 'Darc'));
+// console.log(SCRIPTS.makeNewObjectD(DATA.MOVIEARRAYS, true, 'update', 'Bad Robot'));
+// console.log(SCRIPTS.makeNewObjectH(DATA.MOVIEARRAYS));
+// console.log(SCRIPTS.makeGoodWithReference(DATA.MOVIEARRAYS.reference));
+// console.log(SCRIPTS.makeGoodWithCopy(DATA.MOVIEARRAYS.copy));
+// console.log(SCRIPTS.frankenSpliceNew(DATA.FRANKENSPLICEARRAYS[0], DATA.FRANKENSPLICEARRAYS[1], 1));
+// console.log(SCRIPTS.frankenSpliceNew([1,2,3], [4, 5], 1));
+// console.log("    ", SCRIPTS.decodeMessage(DATA.DECODEMESSAGESTRING));
+// console.log(`"${DATA.DECODEMESSAGESTRING}" means: `);
+// console.log(SCRIPTS.decodeMessage(DATA.DECODEMESSAGESTRING))
+// console.log(SCRIPTS.encode(DATA.ENCODESTRING));
+// console.log(SCRIPTS.isPresent(DATA.ISPRESENTSTRING, DATA.ISPRESENTTARGET))
+// console.log(SCRIPTS.countLetters(DATA.COUNTLETTERSSTRING));
+// console.log(SCRIPTS.swapCase(DATA.SWAPCASESTRING));
+// console.log(SCRIPTS.votingReport(DATA.VOTERS, 18, 25, false));
+// console.log(SCRIPTS.flattenWithReduce(DATA.ARRAY5));
+// console.log(SCRIPTS.flattenWithConcat(DATA.ARRAY5));
+// console.log(SCRIPTS.totalCostWithReduce(DATA.WISHLIST));
+// SCRIPTS.countPeopleWhoVotedWithMap(DATA.VOTERS);
+// console.log(SCRIPTS.countPeopleWhoVotedWithForEach(DATA.VOTERS));
+// console.log(SCRIPTS.turnArrayIntoStringWithReduce(DATA.ARRAY2), '(',typeof(SCRIPTS.turnArrayIntoStringWithReduce(DATA.ARRAY2)),')');
+// console.log(SCRIPTS.arraySumWithForEach(DATA.ARRAY1));
