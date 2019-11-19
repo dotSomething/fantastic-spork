@@ -483,6 +483,20 @@ function randomCity (min = 0, max) {
 	return randomCity;
 }
 
+// Find the greatest common denominator of two number using Euclid's algorithm.
+
+function getGreatestCommonDenominator(firstNumber, secondNumber) {
+	const ORIGINAL_FIRST_NUMBER = firstNumber;
+	const ORIGINAL_SECOND_NUMBER = secondNumber;
+	while (secondNumber != 0) {
+		let placeholder = firstNumber;
+		firstNumber = secondNumber
+		secondNumber = placeholder % firstNumber;
+	}
+	let message = `The greatest common demoniator between ${ORIGINAL_FIRST_NUMBER} and ${ORIGINAL_SECOND_NUMBER} is ${firstNumber}.`
+	return message;
+}
+
 module.exports = {
 	capitalize,
 	simpleUppper,
@@ -518,5 +532,6 @@ module.exports = {
 	makeNewObjectH,
 	makeNewObjectD,
 	newObjectWithObjectSpread,
-	randomCity
+	randomCity,
+	getGreatestCommonDenominator
 }
