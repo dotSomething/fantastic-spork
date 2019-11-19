@@ -35,12 +35,10 @@ const COMMENTS = [
 	{ text: 'Ramen is my fav food ever', id: 123523 },
 	{ text: 'Nice Nice Nice!', id: 542328 }
 ];
-
 const FRANKENSPLICEARRAYS = [
 	[1, 2, 3],
 	[4, 5]
 ]
-
 const CARDATA = [
 	{
 		make: "Scion",
@@ -53,12 +51,10 @@ const CARDATA = [
 		weight: 2500
 	}
 ]
-
 const MOVIEARRAYS = {
 	reference: ['Aliens', 'Predator', 'Infinity War', 'District 9'],
 	copy: ['Black Panther', 'Heat', 'Interstellar', 'The Dark Knight']
 }
-
 const FAVORITE_CITIES = ['Pandora', 'Westeros', 'The Shire', 'Gotham City', 'Metropolis', 'Hell\'s Kitchen'];
 
 // STRINGS
@@ -82,6 +78,7 @@ module.exports = {
 	VOTERS,
 	COMMENTS,
 	FRANKENSPLICEARRAYS,
+	CARDATA,
 	MOVIEARRAYS,
 	FAVORITE_CITIES,
 // STRINGS
