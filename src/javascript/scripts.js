@@ -497,6 +497,17 @@ function getGreatestCommonDenominator(firstNumber, secondNumber) {
 	return message;
 }
 
+// Write countdown function using recursion.
+function countdown(start) {
+	if (start == 0) {
+		console.log("Tada!  Counted down to", start);
+	} else {
+		console.log('Still working counting...', start);
+		start--;
+		countdown(start);
+	}
+}
+
 module.exports = {
 	capitalize,
 	simpleUppper,
@@ -533,5 +544,6 @@ module.exports = {
 	makeNewObjectD,
 	newObjectWithObjectSpread,
 	randomCity,
-	getGreatestCommonDenominator
+	getGreatestCommonDenominator,
+	countdown
 }

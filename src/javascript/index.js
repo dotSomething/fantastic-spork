@@ -2,8 +2,8 @@ const SCRIPTS = require('./scripts.js');
 const DATA = require('./data.js');
 const INPUT = [process.argv[2], process.argv[3]];
 
-
-console.log(SCRIPTS.getGreatestCommonDenominator(INPUT[0], INPUT[1]));
+SCRIPTS.countdown(10)
+// console.log(SCRIPTS.getGreatestCommonDenominator(INPUT[0], INPUT[1]));
 // console.log('One of my favorite cities is', SCRIPTS.randomCity(0, DATA.FAVORITE_CITIES));
 // console.log(SCRIPTS.newObjectWithObjectSpread(DATA.MOVIEARRAYS, 'newStuff', 'Darc'));
 // console.log(SCRIPTS.makeNewObjectD(DATA.MOVIEARRAYS, true, 'update', 'Bad Robot'));
