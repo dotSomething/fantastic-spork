@@ -4,30 +4,32 @@ function calculateFuel(masses) {
 	}, 0)
 }
 
-function reset(array) {
-	let code = 0;
+function resetGravityAssist(opCodes) {
+	(function restoreState() {
+		opCodes[1] = 12;
+		opCodes[2] = 2;
+	})();
 
-	if (array[code] !== 1 && array[code] !== 2 && array[code] !== 99) {
-		console.error(`${array[code]} is not a recognized opcode.`)
-	}
-	if (array[code] === 1) {
-		array.splice(array[3], 1, array[array[1]] + array[array[2]]);
-		code = 4;
-		reset(array);
-	}
-	if (array[code] === 2) {
-		originalArray.splice(originalArray[3], 1, originalArray[originalArray[1]] * originalArray[originalArray[2]]);
-		code = 4;
-		reset(array);
-	}
-	if (array[code] === 99) {
-		return
-	}
+	for (let i = 0; i < opCodes.length; i += 4) {
+		const opCode = opCodes[i];
+		const position_1 = opCodes[opCodes[i + 1]];
+		const position_2 = opCodes[opCodes[i + 2]];
+		const outputIndex = opCodes[i + 3];
 
-	console.log(array);
+		if (opCode === 1) {
+			opCodes[outputIndex] = position_1 + position_2;
+		} else if (opCode === 2) {
+			opCodes[outputIndex] = position_1 * position_2;
+		} else if (opCode === 99) {
+			return opCodes[0];
+		} else {
+			console.error(`Invalid code:  ${opCode}`);
+			break;
+		}
+	}
 }
 
 module.exports = {
 	calculateFuel,
-	reset
+	resetGravityAssist
 }
