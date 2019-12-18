@@ -10,7 +10,7 @@ function restoreState(opCodes, noun, verb) {
 
 }
 
-function gravityAssist(opCodes, noun, verb) {
+function gravityAssist([...opCodes], noun, verb) {
 	restoreState(opCodes, noun, verb);
 
 	for (let i = 0; i < opCodes.length; i += 4) {
@@ -27,25 +27,39 @@ function gravityAssist(opCodes, noun, verb) {
 			return opCodes[0];
 		} else {
 			console.error(`Invalid code:  ${opCode}`);
-			break;
+			return;
 		}
 	}
 }
 
-function initGravityAssist(opCodes, noun, verb, output) {
-	restoreState(opCodes, noun, verb);
+// function initGravityAssistArch(opCodes, noun, verb, output) {
+// 	restoreState(opCodes, noun, verb);
 
-	for (let i = 0; i < opCodes.length; i++) {
-		const formNoun = opCodes[i];
-		const formVerb = opCodes[opCodes[i + 1]];
-		const analysis = 100 * formNoun + formVerb;
-		if (analysis == output) {
-			let results = [noun, verb]
-			return results;
+// 	for (let i = 0; i < opCodes.length; i++) {
+// 		const formNoun = opCodes[i];
+// 		const formVerb = opCodes[opCodes[i + 1]];
+// 		const analysis = 100 * formNoun + formVerb;
+// 		if (analysis == output) {
+// 			let results = [noun, verb]
+// 			return results;
+// 		}
+// 		console.log(`100 * ${formNoun} + ${formVerb} = ${analysis}`);
+// 	}
+// }
+
+function initGravityAssist(opCodes, output) {
+
+	for (let i = 0; i < 100; i++) {
+
+		for (let j = 0; j < 100; j++) {
+			if(gravityAssist([...opCodes], i, j) == output) {
+				return 100 * i + j;
+			}
 		}
 		console.log(`100 * ${formNoun} + ${formVerb} = ${analysis}`);
 	}
 }
+
 
 module.exports = {
 	calculateFuel,
