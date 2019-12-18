@@ -32,20 +32,20 @@ function gravityAssist([...opCodes], noun, verb) {
 	}
 }
 
-function initGravityAssistArch(opCodes, noun, verb, output) {
-	restoreState(opCodes, noun, verb);
+// function initGravityAssistArch(opCodes, noun, verb, output) {
+// 	restoreState(opCodes, noun, verb);
 
-	for (let i = 0; i < opCodes.length; i++) {
-		const formNoun = opCodes[i];
-		const formVerb = opCodes[opCodes[i + 1]];
-		const analysis = 100 * formNoun + formVerb;
-		if (analysis == output) {
-			let results = [noun, verb]
-			return results;
-		}
-		// console.log(`100 * ${formNoun} + ${formVerb} = ${analysis}`);
-	}
-}
+// 	for (let i = 0; i < opCodes.length; i++) {
+// 		const formNoun = opCodes[i];
+// 		const formVerb = opCodes[opCodes[i + 1]];
+// 		const analysis = 100 * formNoun + formVerb;
+// 		if (analysis == output) {
+// 			let results = [noun, verb]
+// 			return results;
+// 		}
+// 		console.log(`100 * ${formNoun} + ${formVerb} = ${analysis}`);
+// 	}
+// }
 
 function initGravityAssist(opCodes, output) {
 

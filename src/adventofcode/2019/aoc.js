@@ -10,5 +10,5 @@ Value of position [0] after the program halts:  ${SCRIPTS.gravityAssist(DATA.SPA
 `)
 
 console.log(`Day 2, Part 2:
-${SCRIPTS.initGravityAssist(DATA.SPACECRAFT_DATA.Intcodes, 19690720)}
+Output is: ${SCRIPTS.initGravityAssist(DATA.SPACECRAFT_DATA.Intcodes, 19690720)}
 `)
