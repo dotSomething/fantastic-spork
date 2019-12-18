@@ -56,6 +56,7 @@ function initGravityAssist(opCodes, output) {
 				return 100 * i + j;
 			}
 		}
+		console.log(`100 * ${formNoun} + ${formVerb} = ${analysis}`);
 	}
 }
 
