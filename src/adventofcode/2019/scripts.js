@@ -1,7 +1,7 @@
 const debug = console.debug;
 
 function runFuelFormula (value) {
-	return Math.floor(value / 3 - 2)
+	return Math.floor(value / 3) - 2
 }
 
 function calculateFuel(masses) {
