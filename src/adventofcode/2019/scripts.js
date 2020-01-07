@@ -1,6 +1,6 @@
 const debug = console.debug;
 
-function runFuelFormula (value) {
+function runFuelFormula(value) {
 	return Math.floor(value / 3) - 2
 }
 
@@ -69,10 +69,37 @@ function initGravityAssist(opCodes, output) {
 	}
 }
 
+function calculateClosestIntersection(position1) {
+	let coordinates = {
+		x: 0,
+		y: 0
+	};
+	debug(coordinates);
+
+
+	const getLocation = (value) => {
+		const res = parseInt(value.toLowerCase().match(/\d+/g));
+		return res;
+	}
+	const getOperator = (value) => {
+		const res = value.toLowerCase().match(/[a-zA-Z]*/);
+		return res;
+	}
+	const translateCoordinate = (value) => {
+		if (getOperator(value) == 'u') {
+			coordinates.y = coordinates.y + getLocation(value);
+		}
+	}
+
+	translateCoordinate(position1);
+
+	return coordinates;
+}
 
 module.exports = {
 	calculateFuel,
 	calculateCalibratedFuel,
 	gravityAssist,
-	initGravityAssist
+	initGravityAssist,
+	calculateClosestIntersection
 }
