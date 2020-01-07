@@ -1,7 +1,32 @@
+const debug = console.debug;
+
+function runFuelFormula (value) {
+	return Math.floor(value / 3 - 2)
+}
+
 function calculateFuel(masses) {
 	return masses.reduce((counter, mass) => {
-		return counter + (Math.floor(mass / 3 - 2));
+		return counter + runFuelFormula(mass);
 	}, 0)
+}
+
+function calculateCalibratedFuel(masses) {
+	const result = [];
+
+	function reduceFuel(mass) {
+		while (runFuelFormula(mass) > 0) {
+			mass = runFuelFormula(mass);
+			result.push(mass);
+		}
+	}
+
+	masses.forEach(element => {
+		reduceFuel(element)
+	});
+
+	return result.reduce((curr, mass) => {
+		return curr = curr + mass;
+	});
 }
 
 function restoreState(opCodes, noun, verb) {
@@ -32,37 +57,22 @@ function gravityAssist([...opCodes], noun, verb) {
 	}
 }
 
-// function initGravityAssistArch(opCodes, noun, verb, output) {
-// 	restoreState(opCodes, noun, verb);
-
-// 	for (let i = 0; i < opCodes.length; i++) {
-// 		const formNoun = opCodes[i];
-// 		const formVerb = opCodes[opCodes[i + 1]];
-// 		const analysis = 100 * formNoun + formVerb;
-// 		if (analysis == output) {
-// 			let results = [noun, verb]
-// 			return results;
-// 		}
-// 		console.log(`100 * ${formNoun} + ${formVerb} = ${analysis}`);
-// 	}
-// }
-
 function initGravityAssist(opCodes, output) {
 
 	for (let i = 0; i < 100; i++) {
 
 		for (let j = 0; j < 100; j++) {
-			if(gravityAssist([...opCodes], i, j) == output) {
+			if (gravityAssist([...opCodes], i, j) == output) {
 				return 100 * i + j;
 			}
 		}
-		console.log(`100 * ${formNoun} + ${formVerb} = ${analysis}`);
 	}
 }
 
 
 module.exports = {
 	calculateFuel,
+	calculateCalibratedFuel,
 	gravityAssist,
 	initGravityAssist
 }
