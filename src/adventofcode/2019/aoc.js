@@ -17,6 +17,6 @@ const DATA = require('./data');
 // Output is: ${SCRIPTS.initGravityAssist(DATA.SPACECRAFT_DATA.Intcodes, 19690720)}
 // `)
 
-console.log(`Day 3:
-What is the Manhattan distance from the central port to the closest intersection? ${SCRIPTS.calculateClosestIntersection('U5')}
-`)
+console.log(SCRIPTS.calculateClosestIntersection(
+	DATA.SPACECRAFT_DATA["Fuel Management System"].wire1,
+	DATA.SPACECRAFT_DATA["Fuel Management System"].wire2));

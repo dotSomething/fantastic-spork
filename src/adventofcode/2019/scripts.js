@@ -69,31 +69,50 @@ function initGravityAssist(opCodes, output) {
 	}
 }
 
-function calculateClosestIntersection(position1) {
+function calculateClosestIntersection(wire1, wire2) {
 	let coordinates = {
-		x: 0,
-		y: 0
-	};
-	debug(coordinates);
+		starting: {
+			x: 0,
+			y: 0
+		},
+		intersections: {
 
-
-	const getLocation = (value) => {
-		const res = parseInt(value.toLowerCase().match(/\d+/g));
-		return res;
-	}
-	const getOperator = (value) => {
-		const res = value.toLowerCase().match(/[a-zA-Z]*/);
-		return res;
-	}
-	const translateCoordinate = (value) => {
-		if (getOperator(value) == 'u') {
-			coordinates.y = coordinates.y + getLocation(value);
 		}
+	};
+
+	// Function works
+	const getGridLocation = (value) => {
+		const res = value.match(/\d+/g).toString()
+		return res;
 	}
 
-	translateCoordinate(position1);
+	// Function works
+	const getAxis = (value) => {
+		let axis = 'unset';
+		const letter = value.toLowerCase().match(/[a-zA-Z]*/);
 
-	return coordinates;
+		if (letter == 'u' || letter == 'd') {
+			axis = 'y'
+		}
+		if (letter == 'r' || letter == 'l') {
+			axis = 'x'
+		}
+
+		return axis;
+	}
+
+	const moveToNextStep = (axis, direction, location) => {
+		// Add axis, location to coordinates object
+
+	}
+
+	const didAnythingCross = () => {
+		// Compare current corrdinates with previous coordinates
+
+		// If cross = true, add (x, y) of intersection to coordinates.intersection
+	}
+
+
 }
 
 module.exports = {
