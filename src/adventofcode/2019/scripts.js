@@ -69,11 +69,12 @@ function initGravityAssist(opCodes, output) {
 	}
 }
 
-function calculateClosestIntersection(wire1, wire2) {
+function calculateClosestIntersection() {
 	let coordinates = {
 		starting: {
 			x: 0,
-			y: 0
+			y: 0,
+			direction: ''
 		},
 		intersections: {
 
@@ -97,13 +98,20 @@ function calculateClosestIntersection(wire1, wire2) {
 		if (letter == 'r' || letter == 'l') {
 			axis = 'x'
 		}
-
 		return axis;
 	}
 
-	const moveToNextStep = (axis, direction, location) => {
+	function moveToNextStep (incomingX, incomingY, incomingDirection) {
 		// Add axis, location to coordinates object
+		console.log( `
+		 ${incomingX} on line 108
+		 ${incomingY} on line 109
+		 ${incomingDirection} on line 110
+		`)
 
+		coordinates.starting.incomingX = incomingDirection;
+
+		console.log(coordinates);
 	}
 
 	const didAnythingCross = () => {
@@ -112,7 +120,12 @@ function calculateClosestIntersection(wire1, wire2) {
 		// If cross = true, add (x, y) of intersection to coordinates.intersection
 	}
 
-
+	moveToNextStep(
+		getAxis('R55'),
+		getAxis('D99'),
+		getGridLocation('R22')
+	);
+	return coordinates;
 }
 
 module.exports = {
