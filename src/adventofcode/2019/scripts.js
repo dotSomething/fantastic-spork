@@ -73,8 +73,8 @@ function initGravityAssist(opCodes, output) {
 const getAxis = (value) => {
 	let isPositive = true;
 	let axis = 'unset';
-	const letter = value.toLowerCase().match(/[a-zA-Z]*/);
-
+	// const letter = value.toLowerCase().match(/[a-zA-Z]*/);  // Wasn't returning the letter??????
+	const letter = value.split("")[0].toLowerCase();
 	switch (letter) {
 		case 'u':
 			axis = 'y'
@@ -89,33 +89,60 @@ const getAxis = (value) => {
 			axis = 'x'
 			isPositive = true
 		default:
-			axis = undefined
+			axis === undefined
 			isPositive = undefined
 	}
 	return [axis, isPositive];
 }
 
 function getCoordinates(value, start = { x: 0, y: 0 }) {
-	const [axis, isPositive] = getAxis(value);
+	let [axis, isPositive] = getAxis(value);
 	const coordinates = [];
 
 	for (let index = 1; index <= Number.parseInt(value.slice(1), 10); index++) {
-		coordinates.push(Object.assign({}, start, { x: index }));
+		// coordinates.push(Object.assign({}, start, { x: index }));  // WORKS
+		coordinates.push(Object.assign({}, start, { [axis]: index }));
 	}
 
 	return coordinates;
 }
 
-getCoordinates('r75');
 
-axis: x, isPositive: true
+// const step1 = getCoordinates('r75') // [ { x: 1, y:0 }, {x:2, y:0 }, ..., {x:75, y:0 }]
+
+/*
+
+axis: x
+isPostitive: true
+
 coordinates [
 	{x: 1, y: 0},
+	{x: 2, y: 0},
+	{x: 3, y: 0},
+	...
+	{x: 75, y: 0},
 
 ]
 
-const step1 = getCoordinates('r75')  // [ { x: 1, y:0 }, {x:2, y:0 }, ..., {x:75, y:0 }]
-const step2 = getCoordinates('d30', step1)  // [ {x: 75, y: -1}, {x:75, y: -2} ..., {x:75, y: -30}]
+*/
+
+// const step2 = getCoordinates('d30', step1) // [{ x: 75, y: -1 }, { x: 75, y: -2 } ..., { x:75, y: -30}]
+
+/*
+
+
+axis: y
+isPositive: false
+
+coordinates [
+	{x: 0, y: -1}
+	{x: 0, y: -2}
+	{x: 0, y: -3}
+	...
+	{x: 0, y: -30}
+]
+
+*/
 
 module.exports = {
 	calculateFuel,
