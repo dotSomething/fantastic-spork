@@ -70,74 +70,52 @@ function initGravityAssist(opCodes, output) {
 	}
 }
 
-const getDistance = (value) => {
-	const res = value.match(/\d+/g).toString();
-
-	if (value == 'u' || value == 'r') {
-		return res;
-	}
-
-	// THIS MIGHT CHOKE AND BURN
-	return -res;
-
-}
-
 const getAxis = (value) => {
+	let isPositive = true;
 	let axis = 'unset';
 	const letter = value.toLowerCase().match(/[a-zA-Z]*/);
 
-	if (letter == 'u' || letter == 'd') {
-		axis = 'y'
+	switch (letter) {
+		case 'u':
+			axis = 'y'
+			isPositive = true
+		case 'd':
+			axis = 'y'
+			isPositive = false
+		case 'l':
+			axis = 'x'
+			isPositive = false
+		case 'r':
+			axis = 'x'
+			isPositive = true
+		default:
+			axis = undefined
+			isPositive = undefined
 	}
-	if (letter == 'r' || letter == 'l') {
-		axis = 'x'
-	}
-	return axis;
+	return [axis, isPositive];
 }
 
-function calculateClosestIntersection() {
-	let coordinates = {
-		starting: {
-			x: 0,
-			y: 0,
-			direction: ''
-		},
-		intersections: {
+function getCoordinates(value, start = { x: 0, y: 0 }) {
+	const [axis, isPositive] = getAxis(value);
+	const coordinates = [];
 
-		}
-	};
-
-	// Function works
-
-	// Function works
-
-
-	function moveToNextStep(incomingAxis, incomingDirection) {
-		if (incomingAxis === 'x' ? coordinates.starting.x = incomingDirection : coordinates.starting.y = incomingDirection)
-			console.log(coordinates);
+	for (let index = 1; index <= Number.parseInt(value.slice(1), 10); index++) {
+		coordinates.push(Object.assign({}, start, { x: index }));
 	}
 
-	const didAnythingCross = () => {
-		// Compare current corrdinates with previous coordinates
-
-		// If cross = true, add (x, y) of intersection to coordinates.intersection
-	}
-
-	moveToNextStep(
-		getAxis('U63'),
-		getDistance('U63')
-	);
 	return coordinates;
 }
 
+getCoordinates('r75');
 
-function getCoordinates(value, coordinates = { x: 0, y: 0 }) {
-	return coordinates[getAxis(value)] += getDistance(value);
-}
+axis: x, isPositive: true
+coordinates [
+	{x: 1, y: 0},
 
-const step1 = getCoordinates('R75') // x: 75, y: 0, distance; 75
-getCoordinates('D30', step1) // x 75, y: -30, distance: 150
+]
 
+const step1 = getCoordinates('r75')  // [ { x: 1, y:0 }, {x:2, y:0 }, ..., {x:75, y:0 }]
+const step2 = getCoordinates('d30', step1)  // [ {x: 75, y: -1}, {x:75, y: -2} ..., {x:75, y: -30}]
 
 module.exports = {
 	calculateFuel,
