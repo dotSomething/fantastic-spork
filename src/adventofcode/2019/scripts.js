@@ -79,15 +79,19 @@ const getAxis = (value) => {
 		case 'u':
 			axis = 'y'
 			isPositive = true
+			break;
 		case 'd':
 			axis = 'y'
 			isPositive = false
+			break
 		case 'l':
 			axis = 'x'
 			isPositive = false
+			break
 		case 'r':
 			axis = 'x'
 			isPositive = true
+			break;
 		default:
 			axis === undefined
 			isPositive = undefined
@@ -100,15 +104,16 @@ function getCoordinates(value, start = { x: 0, y: 0 }) {
 	const coordinates = [];
 
 	for (let index = 1; index <= Number.parseInt(value.slice(1), 10); index++) {
-		// coordinates.push(Object.assign({}, start, { x: index }));  // WORKS
-		coordinates.push(Object.assign({}, start, { [axis]: index }));
+		coordinates.push(Object.assign({}, start, isPositive === true ? { [axis]: index } : { [axis]: -index }));
 	}
 
 	return coordinates;
 }
 
 
-// const step1 = getCoordinates('r75') // [ { x: 1, y:0 }, {x:2, y:0 }, ..., {x:75, y:0 }]
+
+
+// const step1 = getCoordinates('d75') // [ { x: 1, y:0 }, {x:2, y:0 }, ..., {x:75, y:0 }]
 
 /*
 
