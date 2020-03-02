@@ -110,49 +110,27 @@ function getCoordinates(value, start = { x: 0, y: 0 }) {
 	return coordinates;
 }
 
+function buildCoordinateHistory(wire1, wire2){
+	wire1History = [];
+	wire2History = [];
 
+	wire1.forEach(element => {
+		wire1History.push(getCoordinates(element));
+	});
 
+	wire2.forEach(element => {
+		wire2History.push(getCoordinates(element));
+	});
 
-// const step1 = getCoordinates('d75') // [ { x: 1, y:0 }, {x:2, y:0 }, ..., {x:75, y:0 }]
-
-/*
-
-axis: x
-isPostitive: true
-
-coordinates [
-	{x: 1, y: 0},
-	{x: 2, y: 0},
-	{x: 3, y: 0},
-	...
-	{x: 75, y: 0},
-
-]
-
-*/
-
-// const step2 = getCoordinates('d30', step1) // [{ x: 75, y: -1 }, { x: 75, y: -2 } ..., { x:75, y: -30}]
-
-/*
-
-
-axis: y
-isPositive: false
-
-coordinates [
-	{x: 0, y: -1}
-	{x: 0, y: -2}
-	{x: 0, y: -3}
-	...
-	{x: 0, y: -30}
-]
-
-*/
+	// return wire1History;  // WORKS!!
+	return [wire1History, wire2History];  // RETURN "[object], [object]"
+}
 
 module.exports = {
 	calculateFuel,
 	calculateCalibratedFuel,
 	gravityAssist,
 	initGravityAssist,
-	getCoordinates
+	getCoordinates,
+	buildCoordinateHistory
 }

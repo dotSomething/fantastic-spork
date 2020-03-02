@@ -17,4 +17,4 @@ const DATA = require('./data');
 // Output is: ${SCRIPTS.initGravityAssist(DATA.SPACECRAFT_DATA.Intcodes, 19690720)}
 // `)
 
-console.log(SCRIPTS.getCoordinates('r10'));
+console.log(SCRIPTS.buildCoordinateHistory(['d10', 'r10'], ['u10', 'l10']));
