@@ -110,20 +110,34 @@ function getCoordinates(value, start = { x: 0, y: 0 }) {
 	return coordinates;
 }
 
-function buildCoordinateHistory(wire1, wire2){
+function buildCoordinateHistory(wire1, wire2) {
 	wire1History = [];
 	wire2History = [];
+	intersections = [];
+	intersectionCount = 0;
 
+	// Get the coordinates for each entry in Wire 1's path
 	wire1.forEach(element => {
 		wire1History.push(getCoordinates(element));
 	});
 
+	// Get the coordinates for each entry in Wire 2's path
 	wire2.forEach(element => {
 		wire2History.push(getCoordinates(element));
 	});
 
-	// return wire1History;  // WORKS!!
-	return [wire1History, wire2History];  // RETURN "[object], [object]"
+	// Compare each location in Wire 2's path against Wire 1's path
+	wire1History.forEach(wire_1_coordinate => {
+		wire2History.forEach(wire_2_coordinate => {
+			if (wire_1_coordinate.x === wire_2_coordinate.x && wire_1_coordinate.y === wire_2_coordinate.y) {
+				intersectionCount++
+				intersections.push(wire_1_coordinate);
+			}
+		})
+	});
+
+	return [intersectionCount, intersections];
+
 }
 
 module.exports = {
