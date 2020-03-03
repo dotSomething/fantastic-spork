@@ -110,34 +110,30 @@ function getCoordinates(value, start = { x: 0, y: 0 }) {
 	return coordinates;
 }
 
-function buildCoordinateHistory(wire1, wire2) {
-	wire1History = [];
-	wire2History = [];
+function buildCoordinateHistory(path) {
+	history = [];
+
+	path.forEach(element => {
+		history.push(getCoordinates(element));
+	});
+
+	return history;
+}
+
+function isEqual (value1, value2){
+	return value1 === value2 ? true : false;
+}
+
+function getIntersections(wire1, wire2) {
+	let [w1, w2] = [buildCoordinateHistory(wire1), buildCoordinateHistory(wire2)];
+	intersects = w2.filter(location1 => w2.some(location2 => isEqual(location1, location2)))
 	intersections = [];
-	intersectionCount = 0;
 
-	// Get the coordinates for each entry in Wire 1's path
-	wire1.forEach(element => {
-		wire1History.push(getCoordinates(element));
-	});
+	if (intersects === true) {
+		intersections.push(location2);
+	}
 
-	// Get the coordinates for each entry in Wire 2's path
-	wire2.forEach(element => {
-		wire2History.push(getCoordinates(element));
-	});
-
-	// Compare each location in Wire 2's path against Wire 1's path
-	wire1History.forEach(wire_1_coordinate => {
-		wire2History.forEach(wire_2_coordinate => {
-			if (wire_1_coordinate.x === wire_2_coordinate.x && wire_1_coordinate.y === wire_2_coordinate.y) {
-				intersectionCount++
-				intersections.push(wire_1_coordinate);
-			}
-		})
-	});
-
-	return [intersectionCount, intersections];
-
+	return intersections;
 }
 
 module.exports = {
@@ -146,5 +142,6 @@ module.exports = {
 	gravityAssist,
 	initGravityAssist,
 	getCoordinates,
-	buildCoordinateHistory
+	buildCoordinateHistory,
+	getIntersections
 }

@@ -17,4 +17,4 @@ const DATA = require('./data');
 // Output is: ${SCRIPTS.initGravityAssist(DATA.SPACECRAFT_DATA.Intcodes, 19690720)}
 // `)
 
-console.log(JSON.stringify(SCRIPTS.buildCoordinateHistory(['r3', 'u3'], ['u1', 'r5'])));
+console.log(JSON.stringify(SCRIPTS.getIntersections(['r3'], ['r3'])));
