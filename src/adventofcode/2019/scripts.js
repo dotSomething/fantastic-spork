@@ -126,8 +126,10 @@ function isEqual (value1, value2){
 
 function getIntersections(wire1, wire2) {
 	let [w1, w2] = [buildCoordinateHistory(wire1), buildCoordinateHistory(wire2)];
-	intersects = w2.filter(location1 => w2.some(location2 => isEqual(location1, location2)))
+	intersects = w2.filter(location1 => w1.some(location2 => isEqual(location1, location2)))
 	intersections = [];
+
+	debug(w1);
 
 	if (intersects === true) {
 		intersections.push(location2);
