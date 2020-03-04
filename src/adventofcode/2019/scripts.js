@@ -120,21 +120,32 @@ function buildCoordinateHistory(path) {
 	return history;
 }
 
-function isEqual (value1, value2){
+function isEqual(value1, value2) {
 	return value1 === value2 ? true : false;
 }
 
 function getIntersections(wire1, wire2) {
 	let [w1, w2] = [buildCoordinateHistory(wire1), buildCoordinateHistory(wire2)];
-	intersects = w2.filter(location1 => w1.some(location2 => isEqual(location1, location2)))
 	intersections = [];
 
-	debug(w1);
+	// debug(w1[0][0]);
+	// debug(w1[0][0].x);
 
-	if (intersects === true) {
-		intersections.push(location2);
+	for (let wire_1_index = 0; wire_1_index < w1.length; wire_1_index++) {
+		for (let wire_2_index = 0; wire_2_index < w2.length; wire_2_index++) {
+			if (isEqual(
+				w1[wire_1_index][wire_1_index].x,
+				w2[wire_2_index][wire_2_index].x) &&
+				isEqual(w1[wire_1_index][wire_1_index].y,
+					w2[wire_2_index][wire_2_index].y
+				)
+			) {
+				intersections.push(w1[wire_1_index][wire_1_index])
+			}
+			wire_2_index++;
+		}
+		wire_1_index++;
 	}
-
 	return intersections;
 }
 
