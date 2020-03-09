@@ -130,23 +130,17 @@ function getIntersections(wire1, wire2) {
 	let [w1, w2] = [buildCoordinateHistory(wire1), buildCoordinateHistory(wire2)];
 	intersections = [];
 
-	// debug(w1);
-	// // debug(w1[0][0]);
-	// debug(buildCoordinateHistory(['R8']));
-	// debug(buildCoordinateHistory(['U7']));
-	// debug(w1[0][0].x);
-
-	for (let wire_1_index = 0; wire_1_index < w1.length; wire_1_index++) {
-		for (let wire_2_index = 0; wire_2_index < w2.length; wire_2_index++) {
-			if (isEqual(2,2) && isEqual(2,2)) {
-				intersections.push(w1[0][0]);
-			} else {
-				intersections.push('fail');
+	let index = 0;
+	w1.forEach(e1 => {
+		w2.forEach(e2 => {
+			if (e1[index] === e2[index]) {
+				intersections.push(e1[index]);
 			}
-		}
-	}
+			return index++
+		})
+	})
 
-	return intersections;
+	return [w1, w2];
 }
 
 module.exports = {
