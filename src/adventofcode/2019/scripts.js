@@ -134,19 +134,35 @@ function getIntersections(wire1, wire2) {
 		return firstArray.length >= secondArray.length ? firstArray.length : secondArray.length;
 	}
 
-	for (let index = 0; index < determineLongerArray(w1, w2); index++) {
-		w1.forEach(element => {
+	index = 0
+	w1.forEach(element1 => {
 
-			// debug(element[index], '<<< 139');  // output =  { x: 1, y: 0 }
-			// debug(w2[index][index], '<<< 141');  // output = { x: 0, y: 1 }
+		w2.forEach(element2 => {
+			// debug(element[index], '<<< 141');  // output =  { x: 1, y: 0 }
+			// debug(w2[index][index], '<<< 142');  // output = { x: 0, y: 1 }
 
-			if(element[index] === w2[index][index]) {
-				debug('yes');
+			// debug(element1[index].x, '<<< 144');
+			// debug(element2[index].x, '<<< 145');
+
+			if (element1[index].x === element2[index].x && element1[index].y === element2[index].y) {
+				debug(`Match found:
+					${JSON.stringify(element1[index])}
+					${JSON.stringify(element2[index])}`);
+				intersections.push(element1[index]);
+				index++
+
+			}
+			if (element1[index].x != element2[index].x && element1[index].y != element2[index].y) {
+				debug(`Skipping:
+					${JSON.stringify(element1[index])}
+					${JSON.stringify(element2[index])}`);
+				index++
 			}
 		});
-	}
 
-	return null;
+	});
+
+	return intersections;
 }
 
 module.exports = {
