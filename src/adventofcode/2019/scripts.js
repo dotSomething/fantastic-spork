@@ -130,19 +130,23 @@ function getIntersections(wire1, wire2) {
 	let [w1, w2] = [buildCoordinateHistory(wire1), buildCoordinateHistory(wire2)];
 	intersections = [];
 
-	let index = 0;
-	w1.forEach(e1 => {
-		w2.forEach(e2 => {
-			if (typeof w1[index] != 'undefined' || typeof w2[index] != 'undefined') {
-				if (e1[index][index] === e2[index][index]) {
-					intersections.push(e1[index]);
-				}
-				return index++
-			}
-		})
-	})
+	let determineLongerArray = (firstArray, secondArray) => {
+		return firstArray.length >= secondArray.length ? firstArray.length : secondArray.length;
+	}
 
-	return intersections;
+	for (let index = 0; index < determineLongerArray(w1, w2); index++) {
+		w1.forEach(element => {
+
+			// debug(element[index], '<<< 139');  // output =  { x: 1, y: 0 }
+			// debug(w2[index][index], '<<< 141');  // output = { x: 0, y: 1 }
+
+			if(element[index] === w2[index][index]) {
+				debug('yes');
+			}
+		});
+	}
+
+	return null;
 }
 
 module.exports = {
