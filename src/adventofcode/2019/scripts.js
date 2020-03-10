@@ -133,14 +133,16 @@ function getIntersections(wire1, wire2) {
 	let index = 0;
 	w1.forEach(e1 => {
 		w2.forEach(e2 => {
-			if (e1[index] === e2[index]) {
-				intersections.push(e1[index]);
+			if (typeof w1[index] != 'undefined' || typeof w2[index] != 'undefined') {
+				if (e1[index][index] === e2[index][index]) {
+					intersections.push(e1[index]);
+				}
+				return index++
 			}
-			return index++
 		})
 	})
 
-	return [w1, w2];
+	return intersections;
 }
 
 module.exports = {
