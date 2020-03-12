@@ -127,22 +127,15 @@ function isEqual(firstValue, secondValue) {
 function getIntersections(wire1, wire2) {
 	let [wire_1_history, wire_2_history] = [buildCoordinateHistory(wire1), buildCoordinateHistory(wire2)];
 
-	return matches = wire_1_history.filter((w1_element) => {
+	let matches = wire1.filter((arr1_element) => {
+		return wire2.some((arr2_element) => {
+			debug(`Does ${arr1_element} === ${arr2_element}: `, isEqual(arr1_element, arr2_element));
+			return arr1_element === arr2_element;
+		})
+	})
 
-		wire_2_history.filter((w2_element) => {
+	return matches;
 
-			w1_element.filter((e) => {
-				w2_element.filter((ee) => {
-					// debug('e', e.x);
-					// debug('ee', ee.x);
-					// debug(isEqual(e.x, ee.x), isEqual(e.y, ee.y));
-
-					e.x === ee.x && e.y === ee.y;
-				})
-			})
-		}
-		)
-	});
 }
 
 module.exports = {

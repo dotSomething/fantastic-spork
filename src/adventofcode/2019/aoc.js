@@ -18,6 +18,6 @@ const CALL = console.log;
 // `)
 
 CALL(SCRIPTS.getIntersections(
-	['R8'],
-	['R8']
+	['R1', 'R2', 'R5'],
+	['R2', 'R3', 'R5']
 ));
