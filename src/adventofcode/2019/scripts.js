@@ -1,4 +1,4 @@
-const debug = console.debug;
+const debug = console.info;
 const assert = require('assert');
 
 function runFuelFormula(value) {
@@ -127,11 +127,19 @@ function isEqual(firstValue, secondValue) {
 function getIntersections(wire1, wire2) {
 	let [wire_1_history, wire_2_history] = [buildCoordinateHistory(wire1), buildCoordinateHistory(wire2)];
 
-	let matches = wire1.filter((arr1_element) => {
-		return wire2.some((arr2_element) => {
-			debug(`Does ${arr1_element} === ${arr2_element}: `, isEqual(arr1_element, arr2_element));
-			return arr1_element === arr2_element;
-		})
+	let testWire1 = ['R8', 'U5', 'L5', 'D3', ['U7']];
+	let testWire2 = ['U7', 'R6', 'D4', 'L4', 'R8'];
+
+	let matches = testWire1.filter((arr1_element) => {
+		if (Array.isArray(arr1_element)) {
+			debug('Go down array path.');
+
+		} else {
+			return testWire2.some((arr2_element) => {
+				debug(`${arr1_element} is not an array. Moving forward. Does ${arr1_element} === ${arr2_element}: `, isEqual(arr1_element, arr2_element));
+				return arr1_element === arr2_element;
+			})
+		}
 	})
 
 	return matches;
