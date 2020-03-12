@@ -127,42 +127,7 @@ function isEqual(value1, value2) {
 }
 
 function getIntersections(wire1, wire2) {
-	let [w1, w2] = [buildCoordinateHistory(wire1), buildCoordinateHistory(wire2)];
-	intersections = [];
 
-	let determineLongerArray = (firstArray, secondArray) => {
-		return firstArray.length >= secondArray.length ? firstArray.length : secondArray.length;
-	}
-
-	index = 0
-	w1.forEach(element1 => {
-
-		w2.forEach(element2 => {
-			// debug(element[index], '<<< 141');  // output =  { x: 1, y: 0 }
-			// debug(w2[index][index], '<<< 142');  // output = { x: 0, y: 1 }
-
-			// debug(element1[index].x, '<<< 144');
-			// debug(element2[index].x, '<<< 145');
-
-			if (element1[index].x === element2[index].x && element1[index].y === element2[index].y) {
-				debug(`Match found:
-					${JSON.stringify(element1[index])}
-					${JSON.stringify(element2[index])}`);
-				intersections.push(element1[index]);
-				index++
-
-			}
-			if (element1[index].x != element2[index].x && element1[index].y != element2[index].y) {
-				debug(`Skipping:
-					${JSON.stringify(element1[index])}
-					${JSON.stringify(element2[index])}`);
-				index++
-			}
-		});
-
-	});
-
-	return intersections;
 }
 
 module.exports = {
