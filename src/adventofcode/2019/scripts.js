@@ -127,17 +127,28 @@ function isEqual(firstValue, secondValue) {
 function getIntersections(wire1, wire2) {
 	let [wire_1_history, wire_2_history] = [buildCoordinateHistory(wire1), buildCoordinateHistory(wire2)];
 
-	let testWire1 = ['R8', 'U5', 'L5', 'D3', ['U7']];
-	let testWire2 = ['U7', 'R6', 'D4', 'L4', 'R8'];
+	let testWire1 = ['R8', 'U5', 'L5', 'D3', 'L4', ['R10']];
+	let testWire2 = ['U7', 'R6', 'D4', 'L4'];
 
-	let matches = testWire1.filter((arr1_element) => {
-		if (Array.isArray(arr1_element)) {
+	let matches = testWire1.filter((testWire1__level_1_element) => {
+		if (Array.isArray(testWire1__level_1_element)) {
 			debug('Go down array path.');
 
+			// Variable to compare wire1 against wire2 when wire1's element is an array
+			let source_wire1 = testWire1__level_1_element.filter((testWire1__level_2_element) => {
+				testWire2.some((testWire2_element) => {
+					debug(`Array Path (source_wire1):  Does ${testWire1__level_2_element} === ${testWire2_element}?  ${isEqual(testWire1__level_2_element,testWire2_element)}`);
+					return testWire1__level_2_element === testWire2_element;
+				})
+			})
+
+			// Variable to compare wire2 against wire1 when wire2's element is an array
+			let source_wire2;
+			return [source_wire1, source_wire2];
 		} else {
 			return testWire2.some((arr2_element) => {
-				debug(`${arr1_element} is not an array. Moving forward. Does ${arr1_element} === ${arr2_element}: `, isEqual(arr1_element, arr2_element));
-				return arr1_element === arr2_element;
+				debug(`${testWire1__level_1_element} is not an array. Moving forward. Does ${testWire1__level_1_element} === ${arr2_element}: `, isEqual(testWire1__level_1_element, arr2_element));
+				return testWire1__level_1_element === arr2_element;
 			})
 		}
 	})
