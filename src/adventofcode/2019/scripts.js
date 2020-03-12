@@ -120,14 +120,24 @@ function buildCoordinateHistory(path) {
 	return history;
 }
 
-function isEqual(value1, value2) {
-	// debug(value1, '<< 124 ... Wire 1 X coord');
-	// debug(value2, '<< 125 ....Wire 2 x coord');
-	return value1 === value2 ? true : false;
-}
-
 function getIntersections(wire1, wire2) {
+	let [wire_1_history, wire_2_history] = [buildCoordinateHistory(wire1), buildCoordinateHistory(wire2)];
 
+	return matches = wire_1_history.filter((w1_element) => {
+
+		wire_2_history.filter((w2_element) => {
+
+			w1_element.filter((e) => {
+				w2_element.filter((ee) => {
+					// debug('e', e);
+					// debug('ee', ee);
+
+					e === ee;
+				})
+			})
+		}
+		)
+	});
 }
 
 module.exports = {
