@@ -130,9 +130,13 @@ function getIntersections(wire1, wire2) {
 	return matches = wire_1_history.filter((w1_element, w1_index) => {
 
 		wire_2_history.filter((w2_element, w2_index) => {
-			debug('wire1', w1_element[w1_index]);
-			debug('wire2', w2_element[w2_index]);
-			debug('are they the same? ', isEqual(w1_element[w1_index], w2_element[w2_index]));
+
+			isEqual(w1_element[w1_index].x, w2_element[w2_index].x) && isEqual(w1_element[w1_index].y, w2_element[w2_index].y);
+
+			debug('wire1', w1_element[w1_index].x, w1_element[w1_index].y);
+			debug('wire2', w2_element[w2_index].x, w2_element[w2_index].y);
+			debug('are they the same? ', isEqual(w1_element[w1_index].x, w2_element[w2_index].x) && isEqual(w1_element[w1_index].y, w2_element[w2_index].y));
+
 		}
 		)
 	});
