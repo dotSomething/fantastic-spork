@@ -40,36 +40,51 @@ public class Main {
         }
     }
 
+    private static double addValues(String value1, String value2) {
+        return Double.parseDouble(value1) + Double.parseDouble(value2);
+    }
+
+    private static double subtractValues(String value1, String value2) {
+        return Double.parseDouble(value1) - Double.parseDouble(value2);
+    }
+
+    private static double multiplyValues(String value1, String value2) {
+        return Double.parseDouble(value1) * Double.parseDouble(value2);
+    }
+
+    private static double divideValues(String value1, String value2) {
+        return Double.parseDouble(value1) / Double.parseDouble(value2);
+    }
+
+    private static String getInput(String prompt) {
+        System.out.println(prompt);
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+
     private static void simpleCalculator() {
         Scanner scanner = new Scanner(System.in);
         String prefix = "The answer is ";
-
-        System.out.print("Enter a numeric value: ");
-        double firstValue = scanner.nextDouble();
-
-        System.out.print("Enter a numeric value: ");
-        double secondValue = scanner.nextDouble();
-        scanner.nextLine();
-
-        System.out.print("Choose an operation: ");
-        String operation = scanner.nextLine();
-
+        String firstValue = getInput("Enter the first value: ");
+        String secondValue = getInput("Enter the second value: ");
+        String operation = getInput("Choose an operation: ");
 
         switch (operation) {
             case "+":
-                System.out.printf(prefix + Double.sum(firstValue, secondValue));
+                System.out.printf(prefix + addValues(firstValue, secondValue));
                 break;
             case "-":
-                System.out.printf(prefix + (firstValue - secondValue));
+                System.out.printf(prefix + subtractValues(firstValue, secondValue));
                 break;
             case "*":
-                System.out.printf(prefix + (firstValue * secondValue));
+                System.out.printf(prefix + multiplyValues(firstValue, secondValue));
                 break;
             case "/":
-                System.out.printf(prefix + (firstValue / secondValue));
+                System.out.printf(prefix + divideValues(firstValue, secondValue));
                 break;
             default:
                 System.out.printf("Unknown operator");
+                return;
         }
 
         System.out.println();
