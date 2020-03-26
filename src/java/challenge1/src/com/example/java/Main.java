@@ -16,6 +16,11 @@ public class Main {
 
     public static void main(String[] args) {
 
+        simpleCalculator();
+
+    }
+
+    private static void findMonthNumber() {
         Scanner getInput = new Scanner(System.in);
         while (true) {
             System.out.print("Enter a month: ");
@@ -33,20 +38,56 @@ public class Main {
 
             }
         }
+    }
 
+    private static double addValues(String value1, String value2) {
+        return Double.parseDouble(value1) + Double.parseDouble(value2);
+    }
+
+    private static double subtractValues(String value1, String value2) {
+        return Double.parseDouble(value1) - Double.parseDouble(value2);
+    }
+
+    private static double multiplyValues(String value1, String value2) {
+        return Double.parseDouble(value1) * Double.parseDouble(value2);
+    }
+
+    private static double divideValues(String value1, String value2) {
+        return Double.parseDouble(value1) / Double.parseDouble(value2);
+    }
+
+    private static String getInput(String prompt) {
+        System.out.println(prompt);
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
     }
 
     private static void simpleCalculator() {
         Scanner scanner = new Scanner(System.in);
+        String prefix = "The answer is ";
+        String firstValue = getInput("Enter the first value: ");
+        String secondValue = getInput("Enter the second value: ");
+        String operation = getInput("Choose an operation: ");
 
-        System.out.print("Enter a numeric value: ");
-        double firstValue = scanner.nextDouble();
+        switch (operation) {
+            case "+":
+                System.out.printf(prefix + addValues(firstValue, secondValue));
+                break;
+            case "-":
+                System.out.printf(prefix + subtractValues(firstValue, secondValue));
+                break;
+            case "*":
+                System.out.printf(prefix + multiplyValues(firstValue, secondValue));
+                break;
+            case "/":
+                System.out.printf(prefix + divideValues(firstValue, secondValue));
+                break;
+            default:
+                System.out.printf("Unknown operator");
+                return;
+        }
 
-        System.out.print("Enter a numeric value: ");
-        double secondValue = scanner.nextDouble();
-
-        System.out.printf("The answer is ");
-        System.out.println(firstValue + secondValue);
+        System.out.println();
     }
 
     private static void loopOverMonths() {
