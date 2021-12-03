@@ -1,4 +1,5 @@
 ./idea
 ./src/javascript/config.json
 node_modules/
+./src/adventofcode/node_modules
 ./src/javascript/pointarama/node_modules/
